@@ -1,0 +1,17 @@
+language: ruby
+cache:
+- bundler
+before_script:
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+- bundle exec rake assets:precompile
+deploy:
+  provider: heroku
+  api_key:
+    secure: KEY
+  app: biketenance
+  on:
+    repo: coadam/biketenance
+env:
+  global:
+    secure: lbvKpA03AfFI9cbX2+GSi2/v3vAqCFpnxtJvp7ocKI1QBW/p89mEJ8NqFTK2yfgQ86gmRH7WsoQkiGUM71k4fjlKhfUfOsbIlqnlx8AgmVEfRFOBBNCPgT1OiLCHYjhPTrDuZ5o69WVbJIvzdDV0mS2wrcHG8tgjMCBWNDYIg8pNsiTvOVfB0fyinmwcg0pq54aSH39aNLxqoLQnJfcNy1mOj0n5dH8vd4YgbC2Nz0CiU1F3Pz31U//4DIyOGWlwn1Nm48a5ZAlVuhWw+7iaV80vqAH9RiHXVwXoUMWKGjEqR/uvvh4AVQMOcB4yVgpwrC3WFwGNwKl806PAXn98tppYFUeGz7xkhRiM2FhSMqTFkBGDy0JfBOOiIuj3betUFkkaVUDxjH0PY8mrnMAA8WYyqKhx3Pgai6fp/1vOsjzXTrSgd2dEzycMJnSWVmWS8HAur+xnd+A3vmOqxJ8q+B4BMixYd65LSDk79MqfuAMTn/+KZQDrzQx8Ko9CA8wI0zBQMp8jNVeGsDJv0CN9ACBwKMir/msqBwplN4pVWMb6Eo9luDQHgJltKMs7jYYF3O91yW50YXPfO4BxB71kIhG67wnkQIld5PXsnfbdpOZKC+4d1l6fKssXa5WolvKL3DeHFjCNc1ye9YyBcwSXjuLTmA17czoTrw4piLdEreg=
